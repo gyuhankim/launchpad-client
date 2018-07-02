@@ -16,7 +16,21 @@ export class App extends React.Component {
 
       // Grabs the YouTube URL slug for each game
       const videoId = game.videos.map(video => {
-        return video.video_id;
+        if (video.video_id) {
+          return (
+            <YouTube 
+              videoId={video.video_id}
+              opts={
+                {
+                  height:'240',
+                  width: '440'
+                }
+              }
+            />
+          )
+        } else {
+          return null;
+        }
       })
 
       return (
@@ -24,13 +38,7 @@ export class App extends React.Component {
           <p className="game-entry-title">{game.name}</p>
           <p className="game-entry-release-date">{releaseDate.toDateString()}</p>
           <p className="game-entry-summary">{game.summary}</p>
-          {/* <YouTube 
-            videoId={videoId}
-            opts={{            <--- REALLY LAGGY
-              height: '390',
-              width: '640'
-            }}
-          /> */}
+          {videoId}
         </li>
       )
     })
