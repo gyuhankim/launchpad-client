@@ -1,10 +1,10 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
-import appReducer from './reducers/';
+import gamesReducer from './reducers/games';
 
 const store = createStore(
   combineReducers({
-    app: appReducer
+    game: gamesReducer
   }),
   applyMiddleware(thunk)
 )
