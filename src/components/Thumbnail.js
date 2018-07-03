@@ -1,0 +1,1 @@
+// thumbnail for each game entry in list
