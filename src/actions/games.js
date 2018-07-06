@@ -30,3 +30,34 @@ export const fetchGames = () => (dispatch) => {
   .then(games => dispatch(fetchGamesSuccess(games)))
   .catch(err => dispatch(fetchGamesError(err)))
 }
+
+export const FETCH_ONE_GAME_REQUEST = 'FETCH_ONE_GAME_REQUEST';
+export const fetchOneGameRequest = () => ({
+  type: FETCH_ONE_GAME_REQUEST
+})
+
+export const FETCH_ONE_GAME_SUCCESS = 'FETCH_ONE_GAME_SUCCESS';
+export const fetchOneGameSuccess = game => ({
+  type: FETCH_ONE_GAME_SUCCESS,
+  game
+})
+
+export const FETCH_ONE_GAME_ERROR = 'FETCH_ONE_GAME_ERROR';
+export const fetchOneGameError = error => ({
+  type: FETCH_ONE_GAME_ERROR,
+  error
+})
+
+export const fetchOneGame = (gameId) => (dispatch) => {
+  dispatch(fetchOneGameRequest());
+
+  return fetch(`${API_BASE_URL}/${gameId}`, {
+    method: 'GET',
+    headers: {
+      'content-type': 'application/json'
+    }
+  })
+  .then(res => res.json())
+  .then(game => dispatch(fetchOneGameSuccess(game)))
+  .catch(err => dispatch(fetchOneGameError(err)))
+}
