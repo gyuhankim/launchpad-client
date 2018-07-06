@@ -1,5 +1,11 @@
 export default function convertPlatformId(platforms) {
-  let gameConsole;
+  let gameConsole = [];
+
+  // let platforms = {
+  //   (convert to string) someInteger: 'console name'
+  // }
+
+  // platform[someInteger] will return 'console name'
 
   platforms.map(platform => {
     switch(platform) {

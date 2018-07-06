@@ -12,7 +12,7 @@ export function LoginPage(props) {
   return (
     <div>
       <LoginForm />
-      <Link to="/register">Register</Link>
+      <Link to="/register">Sign Up</Link>
       <Link to="/">Back</Link>
     </div>
   )

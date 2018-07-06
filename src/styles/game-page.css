@@ -1,0 +1,53 @@
+.game-page {
+  margin: auto;
+  width: 1000px;
+}
+
+.youtube-video {
+  position: relative;
+  overflow: hidden;
+  padding-top: 56.25%;
+}
+
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.game-page-details {
+  margin: 20px;
+}
+
+.game-page-title {
+  margin-bottom: 10px;
+}
+
+.game-page-platforms {
+  margin-bottom: 10px;
+}
+
+.game-page-summary {
+  margin-bottom: 10px;
+}
+
+@media (max-width: 1280px) {
+  .game-page {
+    width: 85%;
+  }
+}
+
+@media (max-width: 980px) {
+  .game-page {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-page {
+    width: 95%;
+  }
+}

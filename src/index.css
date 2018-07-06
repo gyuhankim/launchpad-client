@@ -7,35 +7,10 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-ul {
-  list-style-type: none;
+a {
+  text-decoration: none;
 }
 
-.game-list {
-  margin: auto;
-  width: 90%;
-}
+.nav-bar {
 
-.card {
-  display: inline-block;
-  width: 320px;
-  margin: 10px;
-}
-
-.game-page {
-  margin: auto;
-  width: 50%;
-}
-
-.fa-heart {
-  float: right;
-  color: grey;
-}
-
-.fa-heart:hover {
-  color: rgb(255, 119, 119)
-}
-
-.fa-heart:active {
-  color: rgb(255, 59, 59)
 }

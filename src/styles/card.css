@@ -1,0 +1,71 @@
+.card {
+  flex: 1 1 16%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+  padding: 10px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+}
+
+.card-image {
+  width: 100%;
+}
+
+.game-name {
+  font-size: 20px;
+}
+
+.game-release-date {
+  font-size: 16px;
+}
+
+.game-platforms {
+  font-size: 14px;
+}
+
+.fa-heart {
+  float: right;
+  color: grey;
+  z-index: 1;
+}
+
+.fa-heart:hover {
+  color: rgb(255, 119, 119)
+}
+
+.fa-heart:active {
+  color: rgb(255, 59, 59)
+}
+
+@media (max-width: 1280px) {
+  .card {
+    flex: 0 1 24%;
+  }
+}
+
+@media (max-width: 980px) {
+  .card {
+    flex: 0 1 49%;
+  }
+}
+
+@media (max-width: 736px) {
+  .card {
+    flex: 0 1 49%;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    flex: 0 1 100%;
+    display: block;
+  }
+}
+
+@media (max-width: 320px) {
+  .card {
+    flex: 0 1 100%;
+    display: block;
+  }
+}
