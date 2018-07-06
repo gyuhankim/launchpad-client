@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 export class Game extends React.Component {
 
   componentDidMount() {
-    // need to add a findById backend call here
+    // need to add a findById backend call here!
   }
 
   render() {
