@@ -1,12 +1,13 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {Route, withRouter} from 'react-router-dom';
+import {Route, withRouter, Switch} from 'react-router-dom';
 
 import {refreshAuthToken} from '../actions/auth';
 
 import LandingPage from './LandingPage';
 import RegistrationPage from './RegistrationPage';
 import LoginPage from './LoginPage';
+import GamePage from './GamePage';
 
 export class App extends React.Component {
 
@@ -40,9 +41,12 @@ export class App extends React.Component {
     
     return (
     <div>
-      <Route exact path="/" component={LandingPage} />
-      <Route exact path="/register" component={RegistrationPage} />
-      <Route exact path="/login" component={LoginPage} />
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <Route path="/register" component={RegistrationPage} />
+        <Route path="/login" component={LoginPage} />
+        <Route path="/:game" component={GamePage} />
+      </Switch>
     </div>
     )
   }
