@@ -26,3 +26,16 @@ ul {
   margin: auto;
   width: 50%;
 }
+
+.fa-heart {
+  float: right;
+  color: grey;
+}
+
+.fa-heart:hover {
+  color: rgb(255, 119, 119)
+}
+
+.fa-heart:active {
+  color: rgb(255, 59, 59)
+}

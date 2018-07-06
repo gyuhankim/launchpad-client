@@ -2,12 +2,9 @@ import React from 'react';
 import YouTube from 'react-youtube';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import {fetchGames} from '../actions/games';
 
 export class Game extends React.Component {
-
-  componentDidMount() {
-    // need to add a findById backend call here
-  }
 
   render() {
     let currentGame = this.props.games.find(data => data.id == this.props.match.params.game);

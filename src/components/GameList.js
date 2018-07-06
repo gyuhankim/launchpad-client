@@ -52,8 +52,9 @@ export class GameList extends React.Component {
               </div>
               <div className="content">
                 {convertPlatformId(game.platforms)}
-                <br />
-                <Link to={"/" + game.id}>Click Here</Link>
+                <span className="favorite-button">
+                  <i className="fas fa-heart fa-2x"></i>
+                </span>
               </div>
             </div>
         </div>
@@ -70,7 +71,8 @@ export class GameList extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  games: state.game.games
+  games: state.game.games,
+  loggedIn: state.auth.currentUser !== null
 })
 
 export default connect(mapStateToProps)(GameList);
