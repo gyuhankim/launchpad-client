@@ -16,7 +16,7 @@ export class RegistrationForm extends React.Component {
   
   onSubmit(values) {
     const {username, password, firstName, lastName} = values;
-    const user = {username, password, firstName, lastName};
+    const user = {username: username.toLowerCase(), password, firstName, lastName};
     return this.props
       .dispatch(registerUser(user))
       .then(() => this.props.dispatch(login(username, password)));
