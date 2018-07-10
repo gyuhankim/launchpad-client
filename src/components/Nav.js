@@ -1,9 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
+
+import '../styles/nav.css';
 
 export class Nav extends React.Component {
 
@@ -17,17 +19,35 @@ export class Nav extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className="nav-bar">
-          <Link to="/favorites">Favorites</Link>
-          <Link to="/favorites">Favorites</Link>
-          <Link to="/favorites">Favorites</Link>
-          <button onClick={() => this.logOut()}>Sign Out</button>
+
+          
+
+          <Link to="/" className="logo">LaunchPad</Link>
+
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
+
+          <Link to="/favorites" className="nav-link">
+            Favorites
+          </Link>
+
+          <Link to="/" onClick={() => this.logOut()} className="nav-link">
+            Log Out
+          </Link>
+
         </div>
       )
     }
 
     return (
       <div className="nav-bar">
-        <Link to="/login">Favorites</Link>
+
+        <Link to="/" className="logo">LaunchPad</Link>
+
+        <Link to="/login" className="nav-link">
+          Log In
+        </Link>
       </div>
     )
   }

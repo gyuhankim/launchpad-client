@@ -11,7 +11,6 @@ export class LandingPage extends React.Component {
 
     return (
       <div className="home">
-        <Nav />
         <GameList />
       </div>
     )

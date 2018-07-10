@@ -8,6 +8,8 @@ import LandingPage from './LandingPage';
 import RegistrationPage from './RegistrationPage';
 import LoginPage from './LoginPage';
 import GamePage from './GamePage';
+import Nav from './Nav';
+import FavoritesList from './FavoritesList';
 
 export class App extends React.Component {
 
@@ -41,10 +43,13 @@ export class App extends React.Component {
     
     return (
     <div>
+      <Nav />
+      
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route path="/register" component={RegistrationPage} />
-        <Route path="/login" component={LoginPage} />
+        <Route exact path="/favorites" component={FavoritesList} />
+        <Route exact path="/register" component={RegistrationPage} />
+        <Route exact path="/login" component={LoginPage} />
         <Route path="/:game" component={GamePage} />
       </Switch>
     </div>

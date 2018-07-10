@@ -10,10 +10,16 @@ export function LoginPage(props) {
   }
 
   return (
-    <div>
+    <div className="login-page">
+    
       <LoginForm />
-      <Link to="/register">Sign Up</Link>
+
+      <div>
+        <Link to="/register">Sign Up</Link>
+      </div>
+
       <Link to="/">Back</Link>
+      
     </div>
   )
 }

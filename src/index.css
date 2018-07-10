@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 body {
@@ -9,8 +10,4 @@ body {
 
 a {
   text-decoration: none;
-}
-
-.nav-bar {
-
 }

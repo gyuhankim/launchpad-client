@@ -3,33 +3,27 @@ import {connect} from 'react-redux';
 import {Redirect, Link} from 'react-router-dom';
 import convertPlatformId from '../utils';
 
-import {fetchGames} from '../actions/games';
-import {addFavorite} from '../actions/favorites';
+import {fetchFavorites} from '../actions/favorites';
 
 import '../styles/game-grid.css';
 import '../styles/card.css';
 
-export class GameList extends React.Component {
+export class FavoritesList extends React.Component {
 
   componentDidMount() {
-    this.props.dispatch(fetchGames());
-  }
-
-  handleHeartClick(gameId) {
-    if (this.props.loggedIn) {
-      console.log(gameId);
-      this.props.dispatch(addFavorite(gameId));
-    } else {
-      window.location.replace("/login");
-    }
+    this.props.dispatch(fetchFavorites());
   }
 
   render() {
 
-    const games = this.props.games.map(game => {
+    if (!this.props.loggedIn) {
+      return <Redirect to="/login" />
+    }
+
+    const favorites = this.props.favorites.map(favorite => {
       let boxArt;
 
-      let releaseDate = new Date(game.first_release_date);
+      let releaseDate = new Date(favorite.first_release_date);
 
       if (releaseDate.getTime() === 1546214400000) {
         releaseDate = 2018;
@@ -39,37 +33,35 @@ export class GameList extends React.Component {
         releaseDate = releaseDate.toDateString().replace(/^\S+\s/,'');
       }
 
-      if (game.cover) {
-        boxArt = `//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.cloudinary_id}`;
+      if (favorite.cover) {
+        boxArt = `//images.igdb.com/igdb/image/upload/t_cover_big/${favorite.cover.cloudinary_id}`;
       } else {
         boxArt = "https://res.cloudinary.com/teepublic/image/private/s--Ug0iCq1F--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1488911584/production/designs/1298385_1.jpg";
       }
 
       return (
-        <div className="card" key={game.id}>
+        <div className="card" key={favorite.id}>
 
-          <Link to={"/" + game.id}>
+          <Link to={"/" + favorite.id}>
               <img className="card-image" src={boxArt} alt="game box art" />
           </Link>
 
-            <div className="card-menu">
-              <i className="favorite-button fas fa-heart fa-2x" onClick={() => this.handleHeartClick(game._id)}></i>
-            </div>
-
             <div className="card-content">
 
-              <Link to={"/" + game.id}>
+              <Link to={"/" + favorite.id}>
                 <div className="game-name">
-                  {game.name}
+                  {favorite.name}
                 </div>
-
                 <div className="game-release-date">
                   {releaseDate}
                 </div>
               </Link>
 
               <div className="game-platforms">
-                {convertPlatformId(game.platforms)}
+                {convertPlatformId(favorite.platforms)}
+                <span className="favorite-button">
+                  <i className="fas fa-heart fa-2x" onClick={() => console.log(favorite._id)}></i>
+                </span>
               </div>  
 
             </div>
@@ -80,15 +72,15 @@ export class GameList extends React.Component {
 
     return (
       <div className="game-grid">
-        {games}
+        {favorites}
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  games: state.games.games,
+  favorites: state.favorites.favorites,
   loggedIn: state.auth.currentUser !== null
 })
 
-export default connect(mapStateToProps)(GameList);
+export default connect(mapStateToProps)(FavoritesList);

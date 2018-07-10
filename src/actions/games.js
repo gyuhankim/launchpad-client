@@ -1,4 +1,5 @@
 import {API_BASE_URL} from '../config.js'
+import {normalizeResponseErrors} from './utils';
 
 export const FETCH_GAMES_REQUEST = 'FETCH_GAMES_REQUEST';
 export const fetchGamesRequest = () => ({
@@ -20,12 +21,13 @@ export const fetchGamesError = error => ({
 export const fetchGames = () => (dispatch) => {
   dispatch(fetchGamesRequest());
 
-  return fetch(API_BASE_URL, {
+  return fetch(`${API_BASE_URL}/games`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json'
     }
   })
+  .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(games => dispatch(fetchGamesSuccess(games)))
   .catch(err => dispatch(fetchGamesError(err)))
@@ -51,12 +53,13 @@ export const fetchOneGameError = error => ({
 export const fetchOneGame = (gameId) => (dispatch) => {
   dispatch(fetchOneGameRequest());
 
-  return fetch(`${API_BASE_URL}/${gameId}`, {
+  return fetch(`${API_BASE_URL}/games/${gameId}`, {
     method: 'GET',
     headers: {
       'content-type': 'application/json'
     }
   })
+  .then(res => normalizeResponseErrors(res))
   .then(res => res.json())
   .then(game => dispatch(fetchOneGameSuccess(game)))
   .catch(err => dispatch(fetchOneGameError(err)))

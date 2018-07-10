@@ -37,7 +37,7 @@ export class Game extends React.Component {
   
           return (
             <div className="youtube-video" key={index}>
-              <iframe width="640" height="480" frameborder="0" allowFullscreen=""
+              <iframe width="640" height="480" frameBorder="0" allowFullScreen=""
               src={`https://www.youtube.com/embed/${video.video_id}`}
               />
             </div>
@@ -50,7 +50,6 @@ export class Game extends React.Component {
 
     return (
       <div className="game-page">
-        <Nav />
         <Link to="/">Back</Link>
         {videos}
         <div className="game-page-details">
@@ -64,9 +63,9 @@ export class Game extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  currentGame: state.game.currentGame,
-  videos: state.game.currentGame.videos,
-  platforms: state.game.currentGame.platforms
+  currentGame: state.games.currentGame,
+  videos: state.games.currentGame.videos,
+  platforms: state.games.currentGame.platforms
 })
 
 export default connect(mapStateToProps)(Game);

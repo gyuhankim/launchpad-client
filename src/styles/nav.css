@@ -1,0 +1,29 @@
+.nav-bar {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  background-color: rgb(132, 134, 245);
+  height: 50px;
+}
+
+.logo {
+  color: white;
+  font-size: 32px;
+  margin-right: 30px;
+}
+
+.nav-link {
+  color: white;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+.nav-link:hover {
+  color: rgb(207, 208, 219) 
+}
+
+@media (max-width: 550px) {
+  .logo, .nav-link {
+    visibility: hidden;
+  }
+}
