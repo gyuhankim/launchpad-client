@@ -43,8 +43,6 @@ export class App extends React.Component {
     
     return (
     <div>
-      <Nav />
-      
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/favorites" component={FavoritesList} />

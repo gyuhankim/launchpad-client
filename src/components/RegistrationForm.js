@@ -5,6 +5,8 @@ import {login} from '../actions/auth';
 import {required, notEmpty, matches, length, isTrimmed} from '../validators';
 import Input from './Input';
 
+import '../styles/registration.css';
+
 const passwordLength = length({
   min: 8,
   max: 32
@@ -27,10 +29,11 @@ export class RegistrationForm extends React.Component {
       <form
         className="registration-form"
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+        <p className="form-header">Register</p>
         <label htmlFor="firstname">First Name</label>
         <Field
           name="firstName"
-          id="firstname-entry"
+          id="firstname"
           type="text"
           component={Input}
           validate={[required, notEmpty]}
@@ -39,7 +42,7 @@ export class RegistrationForm extends React.Component {
         <label htmlFor="lastname">Last Name</label>
         <Field
           name="lastName"
-          id="lastname-entry"
+          id="lastname"
           type="text"
           component={Input}
           validate={[required, notEmpty]}
@@ -48,7 +51,7 @@ export class RegistrationForm extends React.Component {
         <label htmlFor="username">Username</label>
         <Field
           name="username"
-          id="username-entry"
+          id="username"
           type="text"
           component={Input}
           validate={[required, notEmpty, isTrimmed]}
@@ -57,13 +60,13 @@ export class RegistrationForm extends React.Component {
         <label htmlFor="password">Password</label>
         <Field
           name="password"
-          id="password-entry"
+          id="password"
           type="password"
           component={Input}
           validate={[required, passwordLength, isTrimmed]}
         />
 
-        <label htmlFor="confirmpassword">Confirm Password</label>
+        <label htmlFor="confirm-password-entry">Confirm Password</label>
         <Field
           name="confirm-password-entry"
           id="confirm-password-entry"

@@ -69,6 +69,5 @@ export const addFavorite = favorite => (dispatch, getState) => {
     })
   })
   .then(res => normalizeResponseErrors(res))
-  .then(res => console.log(res))
   .catch(err => dispatch(addFavoriteError(err)))
 }

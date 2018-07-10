@@ -4,6 +4,8 @@ import {required, notEmpty} from '../validators';
 import Input from './Input';
 import {login} from '../actions/auth';
 
+import '../styles/login.css';
+
 export class LoginForm extends React.Component {
   
   onSubmit(values) {
@@ -25,7 +27,11 @@ export class LoginForm extends React.Component {
       <form
         className="login-form"
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}>
+
+        <p className="form-header">Log In</p>
+        
         {error}
+        
         <label htmlFor="username">Username</label>
         <Field
           name="username"

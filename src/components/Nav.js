@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 import {clearAuth} from '../actions/auth';
 import {clearAuthToken} from '../local-storage';
@@ -8,10 +8,20 @@ import {clearAuthToken} from '../local-storage';
 import '../styles/nav.css';
 
 export class Nav extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: ''
+    }
+  }
 
   logOut() {
     this.props.dispatch(clearAuth());
     clearAuthToken();
+  }
+
+  handleSearch(searchTerm) {
+    console.log(searchTerm);
   }
 
   render() {
@@ -19,10 +29,6 @@ export class Nav extends React.Component {
     if (this.props.loggedIn) {
       return (
         <div className="nav-bar">
-
-          
-
-          <Link to="/" className="logo">LaunchPad</Link>
 
           <Link to="/" className="nav-link">
             Home
@@ -43,18 +49,22 @@ export class Nav extends React.Component {
     return (
       <div className="nav-bar">
 
-        <Link to="/" className="logo">LaunchPad</Link>
+        <Link to="/" className="nav-link">
+          Home
+        </Link>
 
         <Link to="/login" className="nav-link">
           Log In
         </Link>
+
       </div>
     )
   }
 }
 
 const mapStateToProps = state => ({
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  games: state.games.games
 })
 
 export default connect(mapStateToProps)(Nav);

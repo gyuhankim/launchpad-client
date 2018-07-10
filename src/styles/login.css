@@ -1,0 +1,31 @@
+.login-page {
+  margin-top: 20px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login-form {
+  flex: 0 1 100%;
+  margin: 5px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.3);
+}
+
+label {
+  color: rgb(82, 84, 177);
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+.break-line {
+  margin: 20px 0;
+  width: 320px;
+  border: 0.5px solid rgb(124, 124, 124);
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.6);
+}

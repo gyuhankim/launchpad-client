@@ -1,10 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Redirect, Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import convertPlatformId from '../utils';
 
+import Nav from './Nav';
+
 import {fetchGames} from '../actions/games';
-import {addFavorite} from '../actions/favorites';
+import {addFavorite, fetchFavorites} from '../actions/favorites';
 
 import '../styles/game-grid.css';
 import '../styles/card.css';
@@ -13,24 +15,44 @@ export class GameList extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(fetchGames());
+
+    if (this.props.loggedIn) {
+      this.props.dispatch(fetchFavorites());
+    }
   }
 
   handleHeartClick(gameId) {
     if (this.props.loggedIn) {
-      console.log(gameId);
       this.props.dispatch(addFavorite(gameId));
     } else {
       window.location.replace("/login");
     }
   }
 
+  handleScroll = () => {
+    if (this.scroller) {
+      console.log(this.scroller.scrollTop);
+    }
+  }
+
   render() {
+
+    // Get list of favorites from currentUser
+    let favorites = [];
+
+    if (this.props.favorites) {
+      this.props.favorites.map(favorite => {
+        favorites = [...favorites, favorite._id]
+      })
+    }
 
     const games = this.props.games.map(game => {
       let boxArt;
+      let platforms;
 
       let releaseDate = new Date(game.first_release_date);
 
+      // Readable release date
       if (releaseDate.getTime() === 1546214400000) {
         releaseDate = 2018;
       } else if (releaseDate.getTime() === 1577750400000) {
@@ -39,10 +61,20 @@ export class GameList extends React.Component {
         releaseDate = releaseDate.toDateString().replace(/^\S+\s/,'');
       }
 
+      // Thumbnail
       if (game.cover) {
         boxArt = `//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.cloudinary_id}`;
       } else {
         boxArt = "https://res.cloudinary.com/teepublic/image/private/s--Ug0iCq1F--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1488911584/production/designs/1298385_1.jpg";
+      }
+
+      // Convert platforms
+      if (game.platforms) {
+        platforms = game.platforms.map((platform, index) => {
+          return (
+            <span key={index}>{convertPlatformId(platform)} </span>
+          )
+        })
       }
 
       return (
@@ -69,26 +101,36 @@ export class GameList extends React.Component {
               </Link>
 
               <div className="game-platforms">
-                {convertPlatformId(game.platforms)}
+                {platforms}
               </div>  
 
             </div>
         </div>
       )
-
     })
 
     return (
-      <div className="game-grid">
-        {games}
+      <div className="container">
+        <Nav />
+
+        <div className="game-grid-parent"
+          onScroll={this.handleScroll}
+          ref={(scroller) => {this.scroller = scroller}}
+        >
+          <div className="game-grid">
+            {games}
+          </div>
+        </div>
       </div>
     )
   }
+
 }
 
 const mapStateToProps = state => ({
   games: state.games.games,
-  loggedIn: state.auth.currentUser !== null
+  loggedIn: state.auth.currentUser !== null,
+  favorites: state.favorites.favorites
 })
 
 export default connect(mapStateToProps)(GameList);

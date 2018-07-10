@@ -6,7 +6,6 @@ import {
 
 const initialState = {
   favorites: [],
-  currentGame: {},
   loading: false,
   error: null
 }

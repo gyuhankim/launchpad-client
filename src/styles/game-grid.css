@@ -1,5 +1,9 @@
+.game-grid-parent {
+  overflow-y: auto;
+}
+
 .game-grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
 }

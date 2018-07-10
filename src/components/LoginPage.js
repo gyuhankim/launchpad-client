@@ -4,6 +4,8 @@ import {Link, Redirect} from 'react-router-dom';
 
 import LoginForm from './LoginForm';
 
+import '../styles/login.css';
+
 export function LoginPage(props) {
   if (props.loggedIn) {
     return <Redirect to="/" />;
@@ -14,11 +16,18 @@ export function LoginPage(props) {
     
       <LoginForm />
 
-      <div>
-        <Link to="/register">Sign Up</Link>
+      <div className="break-line">
       </div>
 
-      <Link to="/">Back</Link>
+      <div>
+        <Link to="/register" className="login-page register-link">Register</Link>
+      </div>
+
+      <div className="login-page back-link">
+        <Link to="/">
+          <button>Back</button>
+        </Link>
+      </div>
       
     </div>
   )

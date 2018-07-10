@@ -11,3 +11,35 @@ body {
 a {
   text-decoration: none;
 }
+
+.form-header {
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  color: rgb(82, 84, 177); 
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  color: white;
+  background-color: rgb(132, 134, 245);
+  border: 0;
+}
+
+button:hover {
+  background-color: rgb(105, 106, 212);
+}
+
+button:active {
+  background-color: rgb(74, 76, 175);
+}
+
+.form-error-message {
+  color: rgb(209, 104, 104)(93, 96, 230);
+}
+
+input {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
