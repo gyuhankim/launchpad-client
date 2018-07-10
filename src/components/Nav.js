@@ -18,6 +18,7 @@ export class Nav extends React.Component {
   logOut() {
     this.props.dispatch(clearAuth());
     clearAuthToken();
+    window.location.reload()
   }
 
   handleSearch(searchTerm) {

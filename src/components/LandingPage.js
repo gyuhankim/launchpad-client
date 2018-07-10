@@ -1,8 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 
-import Nav from './Nav';
 import GameList from './GameList';
 
 export class LandingPage extends React.Component {

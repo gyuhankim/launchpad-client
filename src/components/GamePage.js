@@ -21,8 +21,6 @@ export class Game extends React.Component {
     let summary;
     let releaseDate = new Date(this.props.currentGame.first_release_date);
 
-    this.props.currentGame
-
     // Get readable release date
     if (releaseDate.getTime() === 1546214400000) {
       releaseDate = 2018;
@@ -48,7 +46,7 @@ export class Game extends React.Component {
   
           return (
             <div className="youtube-video" key={index}>
-              <iframe width="640" height="480" frameBorder="0" allowFullScreen=""
+              <iframe title={this.props.currentGame.name} width="640" height="480" frameBorder="0" allowFullScreen=""
               src={`https://www.youtube.com/embed/${video.video_id}`}
               />
             </div>

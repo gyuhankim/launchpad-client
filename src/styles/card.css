@@ -46,6 +46,10 @@
   color: rgb(255, 59, 59)
 }
 
+.favorited {
+  color: rgb(255, 59, 59)
+}
+
 @media (max-width: 1380px) {
   .card {
     flex: 0 1 24%;

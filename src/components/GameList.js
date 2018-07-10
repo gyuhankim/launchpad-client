@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import convertPlatformId from '../utils';
 
 import Nav from './Nav';
+import Toolbar from './Toolbar';
 
 import {fetchGames} from '../actions/games';
 import {addFavorite, fetchFavorites} from '../actions/favorites';
@@ -12,10 +13,24 @@ import '../styles/game-grid.css';
 import '../styles/card.css';
 
 export class GameList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: ''
+    }
+  }
+
+  handleSearch(val) {
+    this.setState({
+      searchTerm: val
+    })
+  }
 
   componentDidMount() {
     this.props.dispatch(fetchGames());
+  }
 
+  componentWillReceiveProps() {
     if (this.props.loggedIn) {
       this.props.dispatch(fetchFavorites());
     }
@@ -29,10 +44,8 @@ export class GameList extends React.Component {
     }
   }
 
-  handleScroll = () => {
-    if (this.scroller) {
-      console.log(this.scroller.scrollTop);
-    }
+  handleScroll() {
+    console.log('hi')
   }
 
   render() {
@@ -41,14 +54,13 @@ export class GameList extends React.Component {
     let favorites = [];
 
     if (this.props.favorites) {
-      this.props.favorites.map(favorite => {
-        favorites = [...favorites, favorite._id]
-      })
+      this.props.favorites.map(favorite => favorites = [...favorites, favorite._id])
     }
 
     const games = this.props.games.map(game => {
       let boxArt;
       let platforms;
+      let heartClass = favorites.includes(String(game._id)) ? 'favorited' : '';
 
       let releaseDate = new Date(game.first_release_date);
 
@@ -84,34 +96,36 @@ export class GameList extends React.Component {
               <img className="card-image" src={boxArt} alt="game box art" />
           </Link>
 
-            <div className="card-menu">
-              <i className="favorite-button fas fa-heart fa-2x" onClick={() => this.handleHeartClick(game._id)}></i>
-            </div>
+          <div className="card-menu">
+            <i className={`favorite-button fas fa-heart fa-2x ${heartClass}`} onClick={() => this.handleHeartClick(game._id)}></i>
+          </div>
 
-            <div className="card-content">
+          <div className="card-content">
 
-              <Link to={"/" + game.id}>
-                <div className="game-name">
-                  {game.name}
-                </div>
+            <Link to={"/" + game.id}>
+              <div className="game-name">
+                {game.name}
+              </div>
 
-                <div className="game-release-date">
-                  {releaseDate}
-                </div>
-              </Link>
+              <div className="game-release-date">
+                {releaseDate}
+              </div>
+            </Link>
 
-              <div className="game-platforms">
-                {platforms}
-              </div>  
+            <div className="game-platforms">
+              {platforms}
+            </div>  
 
-            </div>
+          </div>
+
         </div>
       )
     })
 
     return (
-      <div className="container">
+      <div className="container" onScroll={() => this.handleScroll()}>
         <Nav />
+        <Toolbar onChange={e => this.handleSearch(e.target.value)}/>
 
         <div className="game-grid-parent"
           onScroll={this.handleScroll}
@@ -124,13 +138,13 @@ export class GameList extends React.Component {
       </div>
     )
   }
-
 }
 
 const mapStateToProps = state => ({
   games: state.games.games,
   loggedIn: state.auth.currentUser !== null,
-  favorites: state.favorites.favorites
+  favorites: state.favorites.favorites,
+  searchTerm: state.games.searchTerm
 })
 
 export default connect(mapStateToProps)(GameList);

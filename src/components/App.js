@@ -8,7 +8,6 @@ import LandingPage from './LandingPage';
 import RegistrationPage from './RegistrationPage';
 import LoginPage from './LoginPage';
 import GamePage from './GamePage';
-import Nav from './Nav';
 import FavoritesList from './FavoritesList';
 
 export class App extends React.Component {

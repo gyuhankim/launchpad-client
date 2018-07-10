@@ -69,5 +69,43 @@ export const addFavorite = favorite => (dispatch, getState) => {
     })
   })
   .then(res => normalizeResponseErrors(res))
+  .then(() => dispatch(fetchFavorites()))
   .catch(err => dispatch(addFavoriteError(err)))
+}
+
+export const REMOVE_FAVORITE_REQUEST = 'REMOVE_FAVORITE_REQUEST';
+export const removeFavoriteRequest = favorite => ({
+  type: REMOVE_FAVORITE_REQUEST,
+  favorite
+})
+
+export const REMOVE_FAVORITE_SUCCESS = 'REMOVE_FAVORITE_SUCCESS';
+export const removeFavoriteSuccess = () => ({
+  type: REMOVE_FAVORITE_SUCCESS
+})
+
+export const REMOVE_FAVORITE_ERROR = 'REMOVE_FAVORITE_ERROR';
+export const removeFavoriteError = error => ({
+  type: REMOVE_FAVORITE_ERROR,
+  error
+})
+
+export const removeFavorite = favorite => (dispatch, getState) => {
+  dispatch(removeFavoriteRequest(favorite));
+
+  const authToken = getState().auth.authToken;
+
+  return fetch(`${API_BASE_URL}/favorites`, {
+    method: 'DELETE',
+    headers: {
+      'content-type': 'application/json',
+      Authorization: `Bearer ${authToken}`
+    },
+    body: JSON.stringify({
+      gameId: favorite
+    })
+  })
+  .then(res => normalizeResponseErrors(res))
+  .then(() => dispatch(fetchFavorites()))
+  .catch(err => dispatch(removeFavoriteError(err)))
 }

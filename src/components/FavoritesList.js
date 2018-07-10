@@ -4,8 +4,9 @@ import {Redirect, Link} from 'react-router-dom';
 import convertPlatformId from '../utils';
 
 import Nav from './Nav';
+import Toolbar from './Toolbar';
 
-import {fetchFavorites, addFavorite} from '../actions/favorites';
+import {fetchFavorites, removeFavorite} from '../actions/favorites';
 
 import '../styles/game-grid.css';
 import '../styles/card.css';
@@ -16,9 +17,13 @@ export class FavoritesList extends React.Component {
     this.props.dispatch(fetchFavorites());
   }
 
+  componentWillReceiveProps() {
+    this.props.dispatch(fetchFavorites());
+  }
+
   handleHeartClick(gameId) {
     if (this.props.loggedIn) {
-      this.props.dispatch(addFavorite(gameId));
+      this.props.dispatch(removeFavorite(gameId));
     } else {
       window.location.replace("/login");
     }
@@ -69,7 +74,7 @@ export class FavoritesList extends React.Component {
           </Link>
 
             <div className="card-menu">
-              <i className="favorite-button fas fa-heart fa-2x" onClick={() => this.handleHeartClick(favorite._id)}></i>
+              <i className="favorite-button favorited fas fa-heart fa-2x" onClick={() => this.handleHeartClick(favorite._id)}></i>
             </div>
 
             <div className="card-content">
@@ -97,6 +102,7 @@ export class FavoritesList extends React.Component {
     return (
       <div className="container">
         <Nav />
+        <Toolbar />
         <div className="game-grid">
           {favorites}
         </div>
