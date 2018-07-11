@@ -30,14 +30,21 @@ export class GameList extends React.Component {
     this.props.dispatch(fetchGames());
   }
 
-  componentWillReceiveProps() {
-    if (this.props.loggedIn) {
+  // componentWillReceiveProps() {
+  //   if (this.props.loggedIn && ) {
+  //     this.props.dispatch(fetchFavorites());
+  //   }
+  // }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.loggedIn !== this.props.loggedIn) {
       this.props.dispatch(fetchFavorites());
     }
   }
 
   handleHeartClick(gameId) {
     if (this.props.loggedIn) {
+      
       this.props.dispatch(addFavorite(gameId));
     } else {
       window.location.replace("/login");
