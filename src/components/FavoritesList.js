@@ -17,7 +17,8 @@ export class FavoritesList extends React.Component {
     this.props.dispatch(fetchFavorites());
   }
 
-  componentWillReceiveProps() {
+  componentWillReceiveProps(newProps) {
+    if (newProps.loggedIn !== this.props.loggedIn)
     this.props.dispatch(fetchFavorites());
   }
 

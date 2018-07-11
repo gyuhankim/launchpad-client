@@ -28,13 +28,8 @@ export class GameList extends React.Component {
 
   componentDidMount() {
     this.props.dispatch(fetchGames());
+    this.props.dispatch(fetchFavorites());
   }
-
-  // componentWillReceiveProps() {
-  //   if (this.props.loggedIn && ) {
-  //     this.props.dispatch(fetchFavorites());
-  //   }
-  // }
 
   componentWillReceiveProps(newProps) {
     if (newProps.loggedIn !== this.props.loggedIn) {
@@ -44,7 +39,6 @@ export class GameList extends React.Component {
 
   handleHeartClick(gameId) {
     if (this.props.loggedIn) {
-      
       this.props.dispatch(addFavorite(gameId));
     } else {
       window.location.replace("/login");
