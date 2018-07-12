@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import convertPlatformId from '../utils';
+import _ from 'underscore';
 
 import Nav from './Nav';
 import Toolbar from './Toolbar';
@@ -26,7 +27,7 @@ export class GameList extends React.Component {
     if (this.props.loggedIn) {
       this.props.fetchFavorites();
     }
-    window.addEventListener('scroll', this.infiniteScroll);
+    window.addEventListener('scroll', _.throttle(this.infiniteScroll, 500));
   }
 
   componentWillUnmount() {
