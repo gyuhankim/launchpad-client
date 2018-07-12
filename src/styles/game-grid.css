@@ -1,4 +1,13 @@
 .game-grid-parent {
+  max-width: 1400px;
+  margin: auto;
+  overflow-y: auto;
+}
+
+.game-grid-parent-favorite {
+  max-width: 1400px;
+  margin: auto;
+  padding-bottom: 20px;
   overflow-y: auto;
 }
 

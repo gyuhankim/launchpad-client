@@ -27,7 +27,7 @@ export class GameList extends React.Component {
     if (this.props.loggedIn) {
       this.props.fetchFavorites();
     }
-    window.addEventListener('scroll', _.throttle(this.infiniteScroll, 500));
+    window.addEventListener('scroll', _.throttle(this.infiniteScroll, 1000));
   }
 
   componentWillUnmount() {

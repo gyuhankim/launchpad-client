@@ -103,9 +103,10 @@ export class FavoritesList extends React.Component {
     return (
       <div className="container">
         <Nav />
-        <Toolbar />
-        <div className="game-grid">
-          {favorites}
+        <div className="game-grid-parent-favorite">
+          <div className="game-grid">
+            {favorites}
+          </div>
         </div>
       </div>
     )
