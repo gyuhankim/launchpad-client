@@ -105,8 +105,11 @@ export class GameList extends React.Component {
       // Convert platforms from platform IDs
       if (game.platforms) {
         platforms = game.platforms.map((platform, index) => {
+          if (convertPlatformId(platform) === null) {
+            return undefined;
+          }
           return (
-            <span key={index}>{convertPlatformId(platform)} </span>
+            <button key={index} className={convertPlatformId(platform)}>{convertPlatformId(platform)}</button>
           )
         })
       }

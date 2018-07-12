@@ -19,13 +19,44 @@ a {
   color: rgb(82, 84, 177); 
 }
 
+/* Console Classes */
+.PS4, .PS3, .PSVR, .PSN {
+  background-color: rgb(111, 154, 233);;
+}
+
+.XB1, .XBLA {
+  background-color: rgb(107, 180, 103);;
+}
+
+.Switch {
+  background-color: rgb(223, 106, 106);;
+}
+
+.PS4:hover {
+  background-color: rgb(154, 185, 241);;
+}
+
+.XB1:hover {
+  background-color: rgb(138, 224, 134);;
+}
+
+.Switch:hover {
+  background-color: rgb(241, 141, 141);;
+}
+
+/* Button Styling*/
+
 button {
+  font-weight: bold;
+  font-size: 12px;
   margin-top: 10px;
   padding: 5px 10px;
   color: white;
   background-color: rgb(132, 134, 245);
   border: 0;
+  margin-right: 2px;
 }
+
 
 button:hover {
   background-color: rgb(105, 106, 212);

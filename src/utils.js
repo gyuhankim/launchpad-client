@@ -21,5 +21,9 @@ export default function convertPlatformId(platform) {
     3: 'Linux'
   }
 
-  return consoleFilter[platform];
+  if (!consoleFilter[platform]) {
+    return null;
+  } else {
+    return consoleFilter[platform];
+  }
 }
