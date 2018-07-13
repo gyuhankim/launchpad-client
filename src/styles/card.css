@@ -8,16 +8,31 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
 }
 
-.card-image {
-  width: 100%;
+.card-image-container {
+  flex: 0 1 auto;
+  margin-bottom: 10px;
   height: 300px;
+  position: relative;
+}
+
+.card-image {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  margin: auto;
+  top: 0;  
+  bottom: 0;  
+  left: 0;  
+  right: 0; 
+  position: absolute;
 }
 
 .game-name {
   font-size: 18px;
   font-weight: bold;
   color: rgb(82, 84, 177);
-  margin-bottom: 5px;
+  margin: 10px 0;
 }
 
 .game-release-date {
@@ -54,26 +69,17 @@
   .card {
     flex: 0 1 24%;
   }
-  .card-image {
-    max-height: 400px;
-  }
 }
 
 @media (max-width: 1024px) {
   .card {
     flex: 0 1 24%;
   }
-  .card-image {
-    max-height: 350px;
-  }
 }
 
 @media (max-width: 768px) {
   .card {
     flex: 0 1 49%;
-  }
-  .card-image {
-    max-height: 500px;
   }
 }
 
@@ -82,17 +88,11 @@
     flex: 0 1 100%;
     display: block;
   }
-  .card-image {
-    max-height: 500px;
-  }
 }
 
 @media (max-width: 320px) {
   .card {
     flex: 0 1 100%;
     display: block;
-  }
-  .card-image {
-    max-height: 500px;
   }
 }

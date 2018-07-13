@@ -1,0 +1,36 @@
+/* Console Classes */
+.PS4, .PS3, .PSVR, .PSN {
+  background-color: rgb(111, 154, 233);
+}
+
+.XB1, .XBLA {
+  background-color: rgb(107, 180, 103);
+}
+
+.Switch {
+  background-color: rgb(223, 106, 106);
+}
+
+.PS4:hover, .PS3:hover, .PSVR:hover, .PSN:hover {
+  background-color: rgb(154, 185, 241);
+}
+
+.XB1:hover, .XBLA:hover {
+  background-color: rgb(138, 224, 134);
+}
+
+.Switch:hover {
+  background-color: rgb(241, 141, 141);
+}
+
+.PS4:active, .PS3:active, .PSVR:active, .PSN:active {
+  background-color: rgb(111, 154, 233);
+}
+
+.XB1:active, .XBLA:active {
+  background-color: rgb(107, 180, 103);
+}
+
+.Switch:active {
+  background-color: rgb(223, 106, 106);
+}

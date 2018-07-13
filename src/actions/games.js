@@ -1,8 +1,7 @@
 import {API_BASE_URL} from '../config.js'
 import {normalizeResponseErrors} from './utils';
 
-
-// Initial Fetch Of 36 Games //
+// Initial Fetch Of 24 Games //
 export const FETCH_GAMES_REQUEST = 'FETCH_GAMES_REQUEST';
 export const fetchGamesRequest = () => ({
   type: FETCH_GAMES_REQUEST
@@ -37,7 +36,7 @@ export const fetchGames = () => dispatch => {
 
 
 
-// Fetch Additional 36 Games //
+// Fetch Additional 24 Games //
 export const FETCH_MORE_GAMES_REQUEST = 'FETCH_MORE_GAMES_REQUEST';
 export const fetchMoreGamesRequest = () => ({
   type: FETCH_MORE_GAMES_REQUEST
@@ -71,7 +70,12 @@ export const fetchMoreGames = (pageCount) => (dispatch) => {
   .catch(err => dispatch(fetchMoreGamesError(err)))
 }
 
-
+// Push selected platform to state //
+export const GRAB_PLATFORM = 'GRAB_PLATFORM';
+export const grabPlatform = platform => ({
+  type: GRAB_PLATFORM,
+  platform
+})
 
 // Fetch A Single Game Based On GameID //
 export const FETCH_ONE_GAME_REQUEST = 'FETCH_ONE_GAME_REQUEST';

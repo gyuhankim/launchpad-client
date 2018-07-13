@@ -8,11 +8,13 @@ import {
   FETCH_ONE_GAME_REQUEST,
   FETCH_ONE_GAME_SUCCESS,
   FETCH_ONE_GAME_ERROR,
-  FILTER_GAMES
+  FILTER_GAMES,
+  GRAB_PLATFORM
 } from '../actions/games';
 
 const initialState = {
   games: [],
+  platform: '',
   currentGame: {},
   searchTerm: '',
   loading: false,
@@ -92,6 +94,12 @@ export default function gamesReducer(state = initialState, action) {
       searchTerm: action.searchTerm,
       loading: false,
       error: null
+    }
+
+    case GRAB_PLATFORM:
+    return {
+      ...state,
+      platform: action.platform
     }
 
     default:

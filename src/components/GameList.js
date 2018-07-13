@@ -8,18 +8,19 @@ import _ from 'underscore';
 import Nav from './Nav';
 import Toolbar from './Toolbar';
 
-import {fetchGames, fetchMoreGames} from '../actions/games';
+import {fetchGames, fetchMoreGames, grabPlatform} from '../actions/games';
 import {addFavorite, fetchFavorites, removeFavorite} from '../actions/favorites';
 
 import '../styles/game-grid.css';
 import '../styles/card.css';
+import '../styles/consoles.css';
 
 let pageCount = 1;
 
 export class GameList extends React.Component {
   constructor(props) {
     super(props);
-    this.infiniteScroll = this.infiniteScroll.bind(this);
+    this.infiniteScroll = this.infiniteScroll.bind(this)
   }
 
   componentDidMount() {
@@ -42,7 +43,6 @@ export class GameList extends React.Component {
 
   handleHeartClick(gameId) {
     let result = this.props.favorites.find(favorite => favorite._id === gameId);
-
     if (this.props.loggedIn && result) {
       this.props.removeFavorite(gameId);
     } else if (this.props.loggedIn && !result) {
@@ -50,7 +50,10 @@ export class GameList extends React.Component {
     } else {
       window.location.replace("/login");
     }
+  }
 
+  handlePlatformClick(platform) {
+    this.props.grabPlatform(platform)
   }
 
   // readme and onboarding
@@ -79,7 +82,7 @@ export class GameList extends React.Component {
     let games = this.props.games.filter(game => game.name.toLowerCase().includes(this.props.searchTerm.toLowerCase()))
 
     // Iterate through all games post-search
-      games = games.map(game => {
+    games = games.map(game => {
       let boxArt;
       let platforms;
       let heartClass = favorites.includes(String(game._id)) ? 'favorited' : '';
@@ -99,7 +102,7 @@ export class GameList extends React.Component {
       if (game.cover) {
         boxArt = `//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.cloudinary_id}`;
       } else {
-        boxArt = "https://res.cloudinary.com/teepublic/image/private/s--Ug0iCq1F--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1488911584/production/designs/1298385_1.jpg";
+        boxArt = "https://pbs.twimg.com/profile_images/648604381307371521/jxoa_qeC_400x400.png";
       }
 
       // Convert platforms from platform IDs
@@ -109,7 +112,12 @@ export class GameList extends React.Component {
             return undefined;
           }
           return (
-            <button key={index} className={convertPlatformId(platform)}>{convertPlatformId(platform)}</button>
+            <button key={index} 
+              className={convertPlatformId(platform)} 
+              onClick={() => this.handlePlatformClick(convertPlatformId(platform))}
+            >
+            {convertPlatformId(platform)}
+            </button>
           )
         })
       }
@@ -118,7 +126,9 @@ export class GameList extends React.Component {
         <div className="card" key={game.id}>
 
           <Link to={"/" + game.id}>
-              <img className="card-image" src={boxArt} alt="game box art" />
+            <div className="card-image-container">
+              <img className="card-image" src={boxArt} alt={`box art for ${game.name}`} />
+            </div>
           </Link>
 
           <div className="card-menu">
@@ -170,11 +180,12 @@ const mapStateToProps = state => ({
   loggedIn: state.auth.currentUser !== null,
   favorites: state.favorites.favorites,
   searchTerm: state.games.searchTerm,
-  pageCount: state.games.pageCount
+  pageCount: state.games.pageCount,
+  platform: state.games.platform
 })
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators( { fetchGames, fetchMoreGames, addFavorite, fetchFavorites, removeFavorite }, dispatch);
+  return bindActionCreators( { fetchGames, fetchMoreGames, addFavorite, fetchFavorites, removeFavorite, grabPlatform }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(GameList);

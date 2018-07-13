@@ -12,10 +12,10 @@ export class Toolbar extends React.Component {
   render() {
 
     return (
-      <form>
-        <input onChange={e => this.handleSearchInput(e.target.value)}>
+      <form className="toolbar">
+        <input className="search-bar" onChange={e => this.handleSearchInput(e.target.value)}>
         </input>
-        <button type="submit">Search</button>
+        <button className="search-submit" type="submit">Search</button>
       </form>
     )
   }

@@ -4,7 +4,6 @@ import {Redirect, Link} from 'react-router-dom';
 import convertPlatformId from '../utils';
 
 import Nav from './Nav';
-import Toolbar from './Toolbar';
 
 import {fetchFavorites, removeFavorite} from '../actions/favorites';
 
@@ -61,8 +60,11 @@ export class FavoritesList extends React.Component {
       // Convert platforms
       if (favorite.platforms) {
         platforms = favorite.platforms.map((platform, index) => {
+          if (convertPlatformId(platform) === null) {
+            return undefined;
+          }
           return (
-            <span key={index}>{convertPlatformId(platform)} </span>
+            <button key={index} className={convertPlatformId(platform)}>{convertPlatformId(platform)}</button>
           )
         })
       }
