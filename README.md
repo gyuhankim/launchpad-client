@@ -3,9 +3,9 @@
 ### LaunchPad is a simple webapp that displays all future video game releases
 
 ### The goals for LaunchPad is to:
-##### 1) Spotlight the importance of video game release dates
-##### 2) Enable users to effectively track their most anticipated games through the use of the "favorites" feature
-##### 3) Get users even more excited by displaying trailers, screenshots and recent news surrounding their "favorited" games
+1) Spotlight the importance of video game release dates
+2) Enable users to effectively track their most anticipated games through the use of the "favorites" feature
+3) Get users even more excited by displaying trailers, screenshots and recent news surrounding their "favorited" games
 
 
 ## User Onboarding
