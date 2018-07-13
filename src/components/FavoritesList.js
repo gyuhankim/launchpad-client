@@ -89,9 +89,9 @@ export class FavoritesList extends React.Component {
                   {favorite.name}
                 </div>
 
-                <div className="game-release-date">
+                <time className="game-release-date">
                   {releaseDate}
-                </div>
+                </time>
               </Link>
 
               <div className="game-platforms">
@@ -107,11 +107,11 @@ export class FavoritesList extends React.Component {
     return (
       <div className="container">
         <Nav />
-        <div className="game-grid-parent-favorite">
+        <main className="game-grid-parent-favorite" role="main" aria-live="polite">
           <div className="game-grid">
             {favorites}
           </div>
-        </div>
+        </main>
       </div>
     )
   }

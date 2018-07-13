@@ -69,15 +69,15 @@ export class Game extends React.Component {
 
     // Get summary
     if (this.props.currentGame.summary) {
-      summary = <div className="game-page-summary">{this.props.currentGame.summary}</div>
+      summary = <summary className="game-page-summary">{this.props.currentGame.summary}</summary>
     } else {
-      summary = <div className="game-page-no-summary">Game description currently unavailable...</div>
+      summary = <summary className="game-page-no-summary">Game description currently unavailable...</summary>
     }
 
 
     return (
 
-      <div className="container">
+      <main className="container" role="main">
         <Nav />
         <div className="game-page">
           
@@ -85,12 +85,12 @@ export class Game extends React.Component {
 
           <div className="game-page-details">
             <div className="game-page-title">{this.props.currentGame.name}</div>
-            <div className="game-page-release-date">{releaseDate}</div>
+            <time className="game-page-release-date">{releaseDate}</time>
             <div className="game-page-platforms">{platforms}</div>
             {summary}
           </div>
         </div>
-      </div>
+      </main>
     )
   }
 }

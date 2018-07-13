@@ -16,7 +16,7 @@ export class Toolbar extends React.Component {
   render() {
 
     return (
-      <form className="toolbar">
+      <form className="toolbar" role="search">
         <input className="search-bar" onChange={e => this.handleSearchInput(e.target.value)}>
         </input>
         <button className="search-submit" type="submit" onClick={e => this.handleSearchSubmit(e)}>Search</button>

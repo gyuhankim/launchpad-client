@@ -29,7 +29,7 @@ export class Nav extends React.Component {
 
     if (this.props.loggedIn) {
       return (
-        <div className="nav-bar">
+        <nav className="nav-bar" role="navigation">
 
           <Link to="/" className="nav-link">
             Home
@@ -43,7 +43,7 @@ export class Nav extends React.Component {
             Log Out
           </Link>
 
-        </div>
+        </nav>
       )
     }
 

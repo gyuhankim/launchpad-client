@@ -144,9 +144,9 @@ export class GameList extends React.Component {
                 {game.name}
               </div>
 
-              <div className="game-release-date">
+              <time className="game-release-date">
                 {releaseDate}
-              </div>
+              </time>
             </Link>
 
             <div className="game-platforms">
@@ -167,14 +167,16 @@ export class GameList extends React.Component {
         <Nav />
         <Toolbar />
 
-        <div className="game-grid-parent"
+        <main className="game-grid-parent"
           onScroll={this.handleScroll}
           ref={(scroller) => {this.scroller = scroller}}
+          role="main"
+          aria-live="polite"
         >
           <div className="game-grid">
             {games}
           </div>
-        </div>
+        </main>
       </div>
     )
   }
