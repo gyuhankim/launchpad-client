@@ -15,12 +15,12 @@
 
 ### Tech Stack
 ##### Frontend:
-  React/Redux
+* React/Redux
 
 ##### Backend:
-  NodeJS
-  ExpressJS
-  MongoDB
+* NodeJS
+* ExpressJS
+* MongoDB
 
 ## User Onboarding
 ![alt text](screenshots/onboarding.png "Description goes here")
