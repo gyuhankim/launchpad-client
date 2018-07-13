@@ -14,13 +14,28 @@
 [LaunchPad Server Repo](https://github.com/gyuhankim/launchpad-server "LaunchPad Server Repo")
 
 ### Tech Stack
-##### Frontend:
+#### Frontend:
 * React/Redux
 
-##### Backend:
+#### Backend:
 * NodeJS
 * ExpressJS
 * MongoDB
+
+### React Components
+#### (All components can be found in the Components directory)
+* Nav.js => Top bar containing nav links
+* Toolbar.js => Displays search bar and updates state with the input value
+* GameList.js => Main view containing logic for fetching games from DB, filtering and processing of fetched games and infinite scroll logic
+* GamePage.js => View for a single game containing YouTube embed(s) of trailers and game description
+* LoginPage.js => Responsible for displaying LoginForm.js
+* LoginForm.js => Handles form submission, user authentication w/ JWTs and secure, hashed and salted password entry
+* RegistrationPage.js => Responsible for displaying RegistrationForm.js
+* RegistrationForm.js => Handles form submission, POSTs new user to backend and secure, hashed and salted password entry
+* Onboarding.js => Initial user onboarding splash screen
+* FavoritesList.js => Contains similar features to GameList.js but filters by current user's favorites
+
+# Screenshots
 
 ## User Onboarding
 ![alt text](screenshots/onboarding.png "Description goes here")
