@@ -22,7 +22,7 @@ export class Onboarding extends React.Component {
           </div>
   
           <div className="onboarding-description">
-            YOUR MOST ANTICAPTED GAMES <br/>
+            YOUR MOST ANTICIPATED GAMES <br/>
             ALL IN ONE PLACE
           </div>
   
