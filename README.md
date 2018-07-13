@@ -2,10 +2,12 @@
 
 ### LaunchPad is a simple webapp that displays all future video game releases
 
+A webapp designed to spotlight the importance of upcoming video game release dates. Building value users by providing one singular source with a clean and simple interface *(without all the noise and ads of general video game websites)* to view and track (and in the future, be notified of) the games they're most excited for.
+
 ### The goals for LaunchPad is to:
 1) Spotlight the importance of video game release dates
-2) Enable users to effectively track their most anticipated games through the use of the "favorites" feature
-3) Get users even more excited by displaying trailers, screenshots and recent news surrounding their "favorited" games
+2) Enable users to track their most anticipated games by favorite-ing them
+3) Get users excited by displaying trailers, screenshots and recent news surrounding their favorite upcoming games
 
 ### Live
 [LaunchPad.gg](https://mysterious-sands-19667.herokuapp.com/ "LaunchPad.gg")
@@ -15,12 +17,12 @@
 
 ### Tech Stack
 #### Frontend:
-* React/Redux
+* **React/Redux**
 
 #### Backend:
-* NodeJS
-* ExpressJS
-* MongoDB
+* **NodeJS**
+* **ExpressJS**
+* **MongoDB**
 
 ### React Components
 #### (All components can be found in the Components directory)
