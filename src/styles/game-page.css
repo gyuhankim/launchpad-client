@@ -1,7 +1,7 @@
 .game-page {
   margin: auto;
   padding-top: 20px;
-  width: 700px;
+  width: 60%;
 }
 
 .youtube-video {
@@ -46,7 +46,7 @@ iframe {
 .game-page-summary {
   padding: 10px;
   border: 2px solid rgb(160, 160, 160);
-  border-radius: 10px;
+  margin-top: 20px;
   margin-bottom: 400px;
 }
 
@@ -61,18 +61,18 @@ iframe {
 
 @media (max-width: 1280px) {
   .game-page {
-    width: 85%;
+    width: 60%;
   }
 }
 
 @media (max-width: 980px) {
   .game-page {
-    width: 90%;
+    width: 70%;
   }
 }
 
 @media (max-width: 480px) {
   .game-page {
-    width: 95%;
+    width: 90%;
   }
 }

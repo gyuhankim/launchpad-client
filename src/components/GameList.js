@@ -7,6 +7,7 @@ import _ from 'underscore';
 
 import Nav from './Nav';
 import Toolbar from './Toolbar';
+import Onboarding from './Onboarding';
 
 import {fetchGames, fetchMoreGames, grabPlatform} from '../actions/games';
 import {addFavorite, fetchFavorites, removeFavorite} from '../actions/favorites';
@@ -54,6 +55,7 @@ export class GameList extends React.Component {
 
   handlePlatformClick(platform) {
     this.props.grabPlatform(platform)
+    console.log(platform)
   }
 
   // readme and onboarding
@@ -159,6 +161,9 @@ export class GameList extends React.Component {
 
     return (
       <div className="container" onScroll={() => this.handleScroll()}>
+            
+        <Onboarding />
+
         <Nav />
         <Toolbar />
 

@@ -9,7 +9,6 @@ import RegistrationPage from './RegistrationPage';
 import LoginPage from './LoginPage';
 import GamePage from './GamePage';
 import FavoritesList from './FavoritesList';
-import Onboarding from './Onboarding';
 
 export class App extends React.Component {
 
@@ -43,9 +42,6 @@ export class App extends React.Component {
     
     return (
     <div>
-      
-      <Onboarding />
-
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/favorites" component={FavoritesList} />

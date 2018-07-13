@@ -9,13 +9,17 @@ export class Toolbar extends React.Component {
     this.props.dispatch(filterGames(value));
   }
 
+  handleSearchSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
 
     return (
       <form className="toolbar">
         <input className="search-bar" onChange={e => this.handleSearchInput(e.target.value)}>
         </input>
-        <button className="search-submit" type="submit">Search</button>
+        <button className="search-submit" type="submit" onClick={e => this.handleSearchSubmit(e)}>Search</button>
       </form>
     )
   }

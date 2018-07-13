@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchOneGame} from '../actions/games';
+import {fetchOneGame, grabPlatform} from '../actions/games';
 
 import Nav from './Nav';
 
@@ -13,6 +13,11 @@ export class Game extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchOneGame(this.props.match.params.game));
     // window.addEventListener('scroll', (e)=>console.log(e.target));
+  }
+
+  handlePlatformClick(platform) {
+    this.props.dispatch(grabPlatform(platform))
+    console.log(platform)
   }
 
   render() {
@@ -34,7 +39,12 @@ export class Game extends React.Component {
     if (this.props.platforms) {
       platforms = this.props.platforms.map((platform, index) => {
         return (
-          <span key={index}>{convertPlatformId(platform)} </span>
+          <button key={index} 
+            className={convertPlatformId(platform)} 
+            onClick={() => this.handlePlatformClick(convertPlatformId(platform))}
+          >
+          {convertPlatformId(platform)}
+          </button>
         )
       })
     }

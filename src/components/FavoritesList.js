@@ -73,7 +73,9 @@ export class FavoritesList extends React.Component {
         <div className="card" key={favorite.id}>
 
           <Link to={"/" + favorite.id}>
+            <div className="card-image-container">
               <img className="card-image" src={boxArt} alt="game box art" />
+            </div>
           </Link>
 
             <div className="card-menu">

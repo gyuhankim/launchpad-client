@@ -9,12 +9,14 @@ import {
   FETCH_ONE_GAME_SUCCESS,
   FETCH_ONE_GAME_ERROR,
   FILTER_GAMES,
-  GRAB_PLATFORM
+  GRAB_PLATFORM,
+  HIDE_ONBOARDING
 } from '../actions/games';
 
 const initialState = {
   games: [],
   platform: '',
+  hideOnboarding: false,
   currentGame: {},
   searchTerm: '',
   loading: false,
@@ -100,6 +102,12 @@ export default function gamesReducer(state = initialState, action) {
     return {
       ...state,
       platform: action.platform
+    }
+
+    case HIDE_ONBOARDING:
+    return {
+      ...state,
+      hideOnboarding: true
     }
 
     default:

@@ -115,3 +115,8 @@ export const filterGames = searchTerm => ({
   type: FILTER_GAMES,
   searchTerm
 })
+
+export const HIDE_ONBOARDING = 'HIDE_ONBOARDING'
+export const hideOnboarding = () => ({
+  type: HIDE_ONBOARDING
+})
