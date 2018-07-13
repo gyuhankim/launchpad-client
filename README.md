@@ -7,6 +7,11 @@
 2) Enable users to effectively track their most anticipated games through the use of the "favorites" feature
 3) Get users even more excited by displaying trailers, screenshots and recent news surrounding their "favorited" games
 
+### Live
+[I'm an inline-style link with title](https://mysterious-sands-19667.herokuapp.com/ "LaunchPad.gg")
+
+### Server Repo
+[I'm an inline-style link with title](https://github.com/gyuhankim/launchpad-server "LaunchPad Server Repo")
 
 ## User Onboarding
 ![alt text](screenshots/onboarding.png "Description goes here")
