@@ -1,7 +1,7 @@
 # LaunchPad.gg
 
 ### LaunchPad is a simple webapp that displays all future video game releases
-A webapp designed to spotlight upcoming video game release dates. Building value for users by providing one singular source with a clean and simple interface *(without all the noise and ads of general video game websites)* to view and track the games they're most excited for.
+A webapp designed to spotlight upcoming video game release dates. Building value for users by providing one singular source with a clean and simple interface to view and track the games they're most excited for.
 
 ### The goals for LaunchPad is to:
 1) Spotlight upcoming video game release dates
