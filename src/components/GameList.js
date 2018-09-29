@@ -102,7 +102,7 @@ export class GameList extends React.Component {
 
       // Thumbnail => Can change image size/type directly in URL (t_cover_big)
       if (game.cover) {
-        boxArt = `//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.cloudinary_id}`;
+        boxArt = `//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.cloudinary_id}.jpg`;
       } else {
         boxArt = "https://pbs.twimg.com/profile_images/648604381307371521/jxoa_qeC_400x400.png";
       }
