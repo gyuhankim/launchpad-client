@@ -52,7 +52,7 @@ export class FavoritesList extends React.Component {
 
       // Thumbnail
       if (favorite.cover) {
-        boxArt = `//images.igdb.com/igdb/image/upload/t_cover_big/${favorite.cover.cloudinary_id}`;
+        boxArt = `//images.igdb.com/igdb/image/upload/t_cover_big/${favorite.cover.cloudinary_id}.jpg`;
       } else {
         boxArt = "https://res.cloudinary.com/teepublic/image/private/s--Ug0iCq1F--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1488911584/production/designs/1298385_1.jpg";
       }
