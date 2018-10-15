@@ -17,6 +17,7 @@ A webapp designed to spotlight upcoming video game release dates. Building value
 * React
 * Redux
 * UnderscoreJS
+* [IGDB API](https://igdb.github.io/api/)
 
 ## Goals
 ### The goals for LaunchPad is to:
